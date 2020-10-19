@@ -30,4 +30,4 @@ userInput = gets.chomp
 puts "please insert a number"
 uNum = gets.chomp
 
-caesar(userInput, uNum)
+caesar(userInput, uNum);
