@@ -7,37 +7,22 @@
 
 
 def stock_picker(array)
-  sorted = array.sort
-  low = sorted[0]
-  lowIndex = array.index(low)
-  high = sorted[sorted.length - 1]
-  highIndex = array.index(high)
-  i=2
-  while highIndex < lowIndex 
-    high = sorted[sorted.length - i ]
-    highIndex = array.index(high)
-    i +=1
+  val =[]
+  array.combination(2) do |combinator| 
+    r = combinator[1] - combinator[0] 
+    #p combinator
+    if r >0 then val.push(r) end
   end
-  difference = high - low
-  results = Array.new
-  results.push(difference) 
-  puts results
-  j=1
-  low = sorted[j]
-  lowIndex = array.index(low)
-  i=2
-  high = sorted[sorted.length - 1]
-  highIndex = array.index(high)
-  while highIndex < lowIndex 
-    high = sorted[sorted.length - i ]
-    highIndex = array.index(high)
-    i +=1
+  highest = val.max
+  array.combination(2) do |combinator| 
+    m = combinator[1] - combinator[0]
+    if m == highest 
+       p "buy at "+ combinator[0].to_s+ " and sell at "+ combinator[1].to_s+", for a profit of "+m.to_s 
+    end
   end
-  difference = high - low
-  results = Array.new
-  results.push(difference) 
-  puts results
 end
 
 
-stock_picker([17,3,6,9,15,8,6,1,10])
+#stock_picker([17,3,6,9,15,8,6,1,10])
+#stock_picker([7, 9, 5, 6, 3, 2])
+stock_picker([2, 3, 10, 6, 4, 8, 1])
