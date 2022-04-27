@@ -1,3 +1,8 @@
+puts "please give me a word"
+userInput = gets.chomp
+puts "please insert a number"
+uNum = gets.chomp
+
 def caesar (string, n)
   decipher='';
   n = n.to_i
@@ -21,13 +26,8 @@ def caesar (string, n)
       else
         decipher += letter.chr
       end
-    end
+  end
   puts decipher
 end
-
-puts "please give me a word"
-userInput = gets.chomp
-puts "please insert a number"
-uNum = gets.chomp
 
 caesar(userInput, uNum);
